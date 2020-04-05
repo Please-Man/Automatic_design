@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The_tool_of_Automatic_design_ver1.1", "The_tool_of_Automatic_design_ver1.1\The_tool_of_Automatic_design_ver1.1.csproj", "{813B5542-9377-4F68-9C23-AF2F6786D0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{813B5542-9377-4F68-9C23-AF2F6786D0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813B5542-9377-4F68-9C23-AF2F6786D0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813B5542-9377-4F68-9C23-AF2F6786D0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813B5542-9377-4F68-9C23-AF2F6786D0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B913978-6095-4E20-978D-A55EC6EE312A}
+	EndGlobalSection
+EndGlobal
