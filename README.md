@@ -1,4 +1,5 @@
 # Automatic_design(SolidWorks's API) 
+//Incompleted programme(미완성 프로그램)
 
 How to use
 1.Open your SolidWorks.
