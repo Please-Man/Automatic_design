@@ -1,5 +1,5 @@
-# Automatic_design(SolidWorks's API) // 솔리드웍스 API사용 자동 설계
-
+# Automatic_design(SolidWorks's API) 
+//솔리드웍스 API사용 자동 설계
 
 How to use
 1.Open your SolidWorks.
