@@ -1,0 +1,10 @@
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\bin\Debug\Design_Automation_Basic.exe.config
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\bin\Debug\Design_Automation_Basic.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\bin\Debug\Design_Automation_Basic.pdb
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.csprojAssemblyReference.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.Properties.Resources.resources
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.csproj.GenerateResource.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.csproj.CoreCompileInputs.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.pdb
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Basic\obj\Debug\Design_Automation_Basic.Form1.resources

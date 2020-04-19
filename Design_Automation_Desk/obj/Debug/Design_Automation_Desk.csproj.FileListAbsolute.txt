@@ -1,0 +1,10 @@
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\bin\Debug\Design_Automation_Desk.exe.config
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\bin\Debug\Design_Automation_Desk.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\bin\Debug\Design_Automation_Desk.pdb
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.csprojAssemblyReference.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.Form1.resources
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.Properties.Resources.resources
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.csproj.GenerateResource.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.csproj.CoreCompileInputs.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Desk\obj\Debug\Design_Automation_Desk.pdb

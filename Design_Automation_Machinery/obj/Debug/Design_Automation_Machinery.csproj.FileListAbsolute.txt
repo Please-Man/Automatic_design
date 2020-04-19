@@ -1,0 +1,10 @@
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\bin\Debug\Design_Automation_Machinery.exe.config
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\bin\Debug\Design_Automation_Machinery.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\bin\Debug\Design_Automation_Machinery.pdb
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.csprojAssemblyReference.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.Form_main.resources
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.Properties.Resources.resources
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.csproj.GenerateResource.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.csproj.CoreCompileInputs.cache
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.exe
+C:\Users\82104\source\repos\Automatic_design\Design_Automation_Machinery\obj\Debug\Design_Automation_Machinery.pdb
