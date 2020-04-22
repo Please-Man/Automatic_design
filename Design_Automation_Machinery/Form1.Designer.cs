@@ -42,6 +42,8 @@
             this.label_parameter3 = new System.Windows.Forms.Label();
             this.label_parameter4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_parameter5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,11 +177,29 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "안지름";
+            // 
+            // textBox_parameter5
+            // 
+            this.textBox_parameter5.Location = new System.Drawing.Point(97, 239);
+            this.textBox_parameter5.Name = "textBox_parameter5";
+            this.textBox_parameter5.Size = new System.Drawing.Size(73, 21);
+            this.textBox_parameter5.TabIndex = 15;
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox_parameter5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_parameter4);
             this.Controls.Add(this.label_parameter3);
@@ -218,6 +238,8 @@
         private System.Windows.Forms.Label label_parameter3;
         private System.Windows.Forms.Label label_parameter4;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_parameter5;
     }
 }
 

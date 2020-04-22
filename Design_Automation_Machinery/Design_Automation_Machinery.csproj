@@ -36,40 +36,76 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PDMWorks.Interop.pdmworks">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\PDMWorks.Interop.pdmworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.cosworks">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.cosworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.dsgnchk">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.dsgnchk.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.fworks">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.fworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.gtswutilities">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.gtswutilities.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.sldcostingapi">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.sldcostingapi.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.sldtoolboxconfigureaddin">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.sldtoolboxconfigureaddin.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="SolidWorks.Interop.sldworks">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.sldworks.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.sldworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.sustainability">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.sustainability.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.sw3dprinter">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.sw3dprinter.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.sw3dprinter.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swbrowser">
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swbrowser.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swcommands">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swcommands.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swcommands.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swconst">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swconst.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swconst.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swdimxpert">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swdimxpert.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swdimxpert.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swdocumentmgr">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swdocumentmgr.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swdocumentmgr.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swmotionstudy">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swmotionstudy.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swmotionstudy.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swpublished">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.swpublished.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.swpublished.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.SWRoutingLib">
-      <HintPath>D:\Program File\SolidWorks2016\SolidWorks\SOLIDWORKS\SolidWorks.Interop.SWRoutingLib.dll</HintPath>
+      <HintPath>D:\Program File\SolidWorks2019\SOLIDWORKS\api\redist\SolidWorks.Interop.SWRoutingLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />

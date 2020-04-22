@@ -46,8 +46,8 @@
             this.material = new System.Windows.Forms.Button();
             this.Drafting = new System.Windows.Forms.Button();
             this.calculate = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +67,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 52);
+            this.label1.Location = new System.Drawing.Point(53, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 12);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "카테고리(소분류)";
+            this.label1.Text = "카테고리";
             // 
             // label2
             // 
@@ -228,35 +228,15 @@
             this.calculate.UseVisualStyleBackColor = true;
             this.calculate.Click += new System.EventHandler(this.calculate_Click);
             // 
-            // comboBox2
+            // openFileDialog
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "기본도형",
-            "기계요소",
-            "책상"});
-            this.comboBox2.Location = new System.Drawing.Point(31, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 9);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(99, 12);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "카테고리(대분류)";
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.calculate);
             this.Controls.Add(this.Drafting);
             this.Controls.Add(this.material);
@@ -303,8 +283,8 @@
         private System.Windows.Forms.Button material;
         private System.Windows.Forms.Button Drafting;
         private System.Windows.Forms.Button calculate;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

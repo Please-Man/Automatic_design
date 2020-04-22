@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Design_Automation_Basic
 {
@@ -15,6 +16,7 @@ namespace Design_Automation_Basic
         double size1, size2, size3;
 
         CreateModel_Class cm = new CreateModel_Class();
+        CreateDrafting_Class cd = new CreateDrafting_Class();
 
         public Form1()
         {
@@ -133,7 +135,16 @@ namespace Design_Automation_Basic
 
         private void Drafting_Click(object sender, EventArgs e)
         {
-            cm.Drafting_create();
+            
+            saveFileDialog.Title = "저장경로 지정";
+            saveFileDialog.OverwritePrompt = true;
+            saveFileDialog.Filter = "part file (*.sldprt)|*.sldprt|C# file (*.cs)|*.cs";
+            saveFileDialog.ShowDialog();
+            string filename = saveFileDialog.FileName; //선택 경로를 스트링 변수에 할당
+            Console.WriteLine(filename);  
+
+            cd.SaveAndOpen(ref filename);
+            cd.Drafting_create(ref filename);
         }
 
         private void calculate_Click(object sender, EventArgs e)

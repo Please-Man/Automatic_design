@@ -42,13 +42,14 @@ namespace Design_Automation_Machinery
         int errors = 0;
         int warnings = 0;
 
+        //1줄 V벨트 생성
         public void CreateV1(ref double dp, ref double a, ref double l0, ref double k, ref double k0, ref double f, ref double r1, ref double r2, ref double r3)
         { 
             bool status;
 
-            swApp.INewPart();
+            swApp.INewPart(); //파트 새로열기
 
-            swModel = swApp.ActiveDoc;
+            swModel = swApp.ActiveDoc; //실행 중인 창을 선택
 
             swFeature = swModel.FeatureByPositionReverse(3);
             swFeature.Name = "Front";
@@ -69,6 +70,7 @@ namespace Design_Automation_Machinery
             swModel.AddDimension2(-0.01, 0.01, 0);
             swModel.ClearSelection2(true);
 
+            Console.WriteLine("f = " + f);
             swModel.CreateLine2(0, 0, 0, f, 0, 0);
             swModel.AddDimension2(0.02, -0.02, 0);
             swModel.ClearSelection2(true);
@@ -105,6 +107,7 @@ namespace Design_Automation_Machinery
             status = swModel.Extension.SelectByID2("Line6", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             swModel.AddDimension(0.007, 0.007, 0); //치수 생성(선과 선을 선택 했으므로 angle)
             swDimension = (Dimension)swModel.Parameter("D5@스케치1"); //스케치1의 5번째 치수 선택
+            Console.WriteLine("a = " + a);
             errors = swDimension.SetSystemValue3(a*Math.PI/180, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration,null); //V벨트의 각도
             swModel.ClearSelection2(true); //치수 메세지 닫기
 
@@ -112,7 +115,7 @@ namespace Design_Automation_Machinery
             status = swModel.Extension.SelectByID2("Line7", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             swModel.AddDimension(0.01, 0.55, 0);
             swDimension = (Dimension)swModel.Parameter("D6@스케치1");
-            errors = swDimension.SetSystemValue3(0.004, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration, null);
+            errors = swDimension.SetSystemValue3(l0, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration, null);
             swModel.ClearSelection2(true);
 
             //필렛
@@ -153,14 +156,90 @@ namespace Design_Automation_Machinery
             swFeature = swModel.FeatureManager.FeatureRevolve2(true,true,false,false,false,false,0,0, 6.2831853071796, 0, false, false, 0.01, 0.01, 0, 0, 0, true, true, true);
 
             swFeature = swModel.FeatureByPositionReverse(0);
-            swFeature.Name = "V벨트풀리_Model";
+            swFeature.Name = "V벨트풀리";
 
             swModel.ForceRebuild3(true);
             swModel.ViewZoomtofit2();
 
             config = swModel.GetActiveConfiguration();
             cusPropMgr = config.CustomPropertyManager;
-           
+        }
+
+        public void CutKeyHole(ref double di,ref double t,ref double b)
+        {
+            bool status;
+
+            //샤프트 홀 생성
+            swModel = swApp.ActiveDoc;
+
+            swFeature = swModel.FeatureByPositionReverse(3);
+            swFeature.Name = "Front";
+
+            swFeature = swModel.FeatureByPositionReverse(2);
+            swFeature.Name = "Top";
+
+            swFeature = swModel.FeatureByPositionReverse(1);
+            swFeature.Name = "Right";
+
+            status = swModel.Extension.SelectByID2("Right", "PLANE", 0, 0, 0, false, 0, null, 0);
+
+
+            swModel.InsertSketch2(true);
+
+            swModel.CreateCircleByRadius2(0, 0, 0, di);
+            swModel.AddDimension2(-0.01, 0.01, 0);
+            swModel.ClearSelection2(true);
+
+            swFeature = swModel.FeatureByPositionReverse(0);
+            swFeature.Name = "샤프트 홀_Sketch";
+
+            status = swModel.Extension.SelectByID2("샤프트 홀_Sketch", "SKETCH", 0, 0, 0, false, 0, null, 0);
+
+            swFeature = swModel.FeatureManager.FeatureCut4(false, false, false, 1, 1, 0, 0, false, false, false,
+            false, 0,0, false, false, false, false,false,false,false,false,false,false,0,0,false,false);
+
+            swFeature = swModel.FeatureByPositionReverse(0);
+            swFeature.Name = "샤프트 홀";
+
+
+            //키 홈 생성
+            swModel = swApp.ActiveDoc;
+
+            swFeature = swModel.FeatureByPositionReverse(3);
+            swFeature.Name = "Front";
+
+            swFeature = swModel.FeatureByPositionReverse(2);
+            swFeature.Name = "Top";
+
+            swFeature = swModel.FeatureByPositionReverse(1);
+            swFeature.Name = "Right";
+
+            status = swModel.Extension.SelectByID2("Right", "PLANE", 0, 0, 0, false, 0, null, 0);
+
+
+            swModel.InsertSketch2(true);
+
+            swModel.SketchRectangle(-b/2, di+t, 0, b/2, di-t, 0, true);
+            swModel.AddDimension2(0.03, -0.02, 0);
+            swModel.ClearSelection2(true);
+
+            swFeature = swModel.FeatureByPositionReverse(0);
+            swFeature.Name = "키 홈_Sketch";
+            
+            status = swModel.Extension.SelectByID2("키홈_Sketch", "SKETCH", 0, 0, 0, false, 0, null, 0);
+
+            swFeature = swModel.FeatureManager.FeatureCut4(false, false, false, 1, 1, 0, 0, false, false, false,
+            false, 0, 0, false, false, false, false, false, false, false, false, false, false, 0, 0, false, false);
+
+            swFeature = swModel.FeatureByPositionReverse(0);
+            swFeature.Name = "키 홈";
+
+            swModel.ForceRebuild3(true);
+            swModel.ViewZoomtofit2();
+
+            config = swModel.GetActiveConfiguration();
+            cusPropMgr = config.CustomPropertyManager;
+            
         }
     }
 }

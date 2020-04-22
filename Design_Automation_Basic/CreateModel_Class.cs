@@ -40,6 +40,8 @@ namespace Design_Automation_Basic
         {
             bool status;
 
+            swApp.INewPart();
+
             swModel = swApp.ActiveDoc;
 
             swFeature = swModel.FeatureByPositionReverse(3);
@@ -87,6 +89,8 @@ namespace Design_Automation_Basic
         public void CreateC(ref double d, ref double h) // 중실축 생성
         {
             bool status;
+            swApp.INewPart();
+
             Console.WriteLine("swApp " + swApp);
             if (swApp != null)
             {
@@ -144,6 +148,8 @@ namespace Design_Automation_Basic
 
             bool status;
 
+            swApp.INewPart();
+
             swModel = swApp.ActiveDoc;
 
             swFeature = swModel.FeatureByPositionReverse(3);
@@ -182,31 +188,6 @@ namespace Design_Automation_Basic
             cusPropMgr.Add3("Description", (int)swCustomInfoType_e.swCustomInfoText, "Block / Boru", (int)swCustomPropertyAddOption_e.swCustomPropertyDeleteAndAdd);
 
             cusPropMgr.Add3("Dimensions", (int)swCustomInfoType_e.swCustomInfoText, (h * 1000).ToString() + "mm", (int)swCustomPropertyAddOption_e.swCustomPropertyDeleteAndAdd);
-        }
-
-        public void Drafting_create()
-        {
-            string assemblyDrawing = null;
-            bool status = false;
-            int errors = 0;
-            int warnings = 0;
-            int lineWeight = 0;
-            double lineThickness = 0;
-
-            //도면화를 위한 객체
-            DrawingDoc swDraw = default(DrawingDoc);
-            SelectionMgr swSelMgr = default(SelectionMgr);
-            SelectData swSelData = default(SelectData);
-            ModelDocExtension swModelDocExt = default(ModelDocExtension);
-            View swView = default(View);
-            DrawingComponent swRootDrawComp = default(DrawingComponent);
-            object[] vDrawChildCompArr = null;
-            DrawingComponent swDrawComp = default(DrawingComponent);
-            Component2 swComp = default(Component2);
-            ModelDoc2 swCompModel = default(ModelDoc2);
-
-            swDraw = (DrawingDoc)swApp.INewDrawing(6); //A0:11, A1:10, A2:9, A3:8, A4:6 , 도면 새로 만들기
-            swDraw.DragModelDimension("Front", 1, 100, 100, 0);
         }
 
         public void Material(ref string metrial)
