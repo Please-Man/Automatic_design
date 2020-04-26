@@ -44,12 +44,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_parameter5 = new System.Windows.Forms.TextBox();
+            this.button_drafting = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_drawing
             // 
-            this.button_drawing.Location = new System.Drawing.Point(49, 362);
+            this.button_drawing.Location = new System.Drawing.Point(16, 362);
             this.button_drawing.Name = "button_drawing";
             this.button_drawing.Size = new System.Drawing.Size(75, 23);
             this.button_drawing.TabIndex = 0;
@@ -193,11 +195,22 @@
             this.textBox_parameter5.Size = new System.Drawing.Size(73, 21);
             this.textBox_parameter5.TabIndex = 15;
             // 
+            // button_drafting
+            // 
+            this.button_drafting.Location = new System.Drawing.Point(124, 362);
+            this.button_drafting.Name = "button_drafting";
+            this.button_drafting.Size = new System.Drawing.Size(75, 23);
+            this.button_drafting.TabIndex = 16;
+            this.button_drafting.Text = "Drafting";
+            this.button_drafting.UseVisualStyleBackColor = true;
+            this.button_drafting.Click += new System.EventHandler(this.button_drafting_Click);
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_drafting);
             this.Controls.Add(this.textBox_parameter5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
@@ -240,6 +253,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_parameter5;
+        private System.Windows.Forms.Button button_drafting;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

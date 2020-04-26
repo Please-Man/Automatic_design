@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,23 @@ namespace Design_Automation_Machinery
     public partial class Form_main : Form
     {
         CreateModel_Class cm = new CreateModel_Class();
+        CreateDrafting_Class cd = new CreateDrafting_Class();
 
         double dp, a, l0, k, k0, e_, f, r1, r2, r3; // V벨트 참조 변수
+
+        private void button_drafting_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.Title = "저장경로 지정";
+            saveFileDialog.OverwritePrompt = true;
+            saveFileDialog.Filter = "part file (*.sldprt)|*.sldprt|C# file (*.cs)|*.cs";
+            saveFileDialog.ShowDialog();          
+            string filename1 = saveFileDialog.FileName; //선택 경로를 스트링 변수에 할당
+            string filename2 = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
+            Console.WriteLine("filename1 = " + filename1);
+            Console.WriteLine("filename2 = " + filename2);
+            cd.Drafting_Vbelt(ref filename1,ref filename2,ref dp,ref f);
+        }
+
         double i1, i2, i3; //호칭 지름 범위 변수
         double di , t, b; // 안지름(샤프트 홀) 및 키 홈 변수
 
@@ -59,7 +75,7 @@ namespace Design_Automation_Machinery
                 l0 = 9.2 / 2000;
                 k = 4.5 / 1000;
                 k0 = 8.0 / 1000;
-                e_ = 15;
+                e_ = 15.0;
                 f = 10.0 / 1000;
                 label_parameter1.Text = " 호칭지름\n(71mm이상)";
                 label_parameter2.Text = "r1(0.2~0.5)";
@@ -74,7 +90,7 @@ namespace Design_Automation_Machinery
                 l0 = 12.5 / 2000;
                 k = 5.5 / 1000;
                 k0 = 9.5 / 1000;
-                e_ = 19;
+                e_ = 19.0;
                 f = 12.5 / 1000;
                 label_parameter1.Text = " 호칭지름\n(125mm이상)";
                 label_parameter2.Text = "r1(0.2~0.5)";
@@ -87,10 +103,10 @@ namespace Design_Automation_Machinery
             else if (comboBox_type.SelectedIndex == 3) //C타입
             {
                 l0 = 16.9 / 2000;
-                k = 7 / 1000;
-                k0 = 12 / 1000;
+                k = 7.0 / 1000;
+                k0 = 12.0 / 1000;
                 e_ = 25.5;
-                f = 17 / 1000;
+                f = 17.0 / 1000;
                 label_parameter1.Text = " 호칭지름\n(200mm이상)";
                 label_parameter2.Text = "r1(0.2~0.5)";
                 label_parameter3.Text = "r2(0.5~1.6)";
@@ -104,8 +120,8 @@ namespace Design_Automation_Machinery
                 l0 = 24.6 / 2000;
                 k = 9.5 / 1000;
                 k0 = 15.5 / 1000;
-                e_ = 37;
-                f = 24 / 1000;
+                e_ = 37.0;
+                f = 24.0 / 1000;
                 label_parameter1.Text = " 호칭지름\n(355mm이상)";
                 label_parameter2.Text = "r1(0.2~0.5)";
                 label_parameter3.Text = "r2(1.6~2.0)";
@@ -120,7 +136,7 @@ namespace Design_Automation_Machinery
                 k = 12.7 / 1000;
                 k0 = 19.3 / 1000;
                 e_ = 44.5;
-                f = 29 / 1000;
+                f = 29.0 / 1000;
                 label_parameter1.Text = " 호칭지름\n(500mm이상)";
                 label_parameter2.Text = "r1(0.2~0.5)";
                 label_parameter3.Text = "r2(1.6~2.0)";
@@ -138,7 +154,7 @@ namespace Design_Automation_Machinery
             r2 = Convert.ToDouble(textBox_parameter3.Text) / 1000;
             r3 = Convert.ToDouble(textBox_parameter4.Text) / 1000;
 
-            di = Convert.ToDouble(textBox_parameter4.Text);
+            di = Convert.ToDouble(textBox_parameter5.Text);
             keyhole(ref di);
 
             if (dp > i2 && dp <= i3)
@@ -169,6 +185,7 @@ namespace Design_Automation_Machinery
 
         private void keyhole(ref double di)
         {
+            Console.WriteLine("di = " + di);
             if(di < 8) { t = 1.0; b = 2; }
             else if (di < 10) { t = 1.4; b = 3; }
             else if (di < 12) { t = 1.8; b = 4; }
@@ -180,9 +197,9 @@ namespace Design_Automation_Machinery
             else if (di < 50) { t = 3.8; b = 14; }
             else if (di < 58) { t = 4.3; b = 16; }
             else if (di < 65) { t = 4.4; b = 18; }
-            di = di / 1000;
             t = t / 1000;
             b = b / 1000;
+            Console.WriteLine("di = " + di);
         }
     }
 }

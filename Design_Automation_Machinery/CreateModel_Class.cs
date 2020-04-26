@@ -70,10 +70,10 @@ namespace Design_Automation_Machinery
             swModel.AddDimension2(-0.01, 0.01, 0);
             swModel.ClearSelection2(true);
 
-            Console.WriteLine("f = " + f);
+            Console.WriteLine("f = " + f); 
             swModel.CreateLine2(0, 0, 0, f, 0, 0);
-            swModel.AddDimension2(0.02, -0.02, 0);
-            swModel.ClearSelection2(true);
+            swModel.AddDimension2(f/2.0, dp+5*k, 0);
+            swModel.ClearSelection2(true);//f, 디멘션2
 
             swModel.CreateLine2(f,0,0,f,dp+k,0); //오른쪽 선(높이는 호칭지름+k)
             swModel.AddDimension2(0.03, 0.03, 0);
@@ -146,6 +146,40 @@ namespace Design_Automation_Machinery
             status = swModel.Extension.SelectByID2("Line1", "SKETCHSEGMENT", 0, 0, 0, true, 2, null, 0);
             swModel.SketchMirror();
 
+            swModel.CreateCenterLineVB(0, -dp, 0, 0.05, -dp, 0); //도면화 작업 편리용 피치선 
+
+            //도면화 작업을 위한 치수선 삭제 작업
+            status = swModel.Extension.SelectByID2("D1@스케치1", "DIMENSION", 0, 0, 0, false, 0, null, 0);
+            swModel.DeleteSelection(status);
+            status = swModel.Extension.SelectByID2("D3@스케치1", "DIMENSION", 0, 0, 0, false, 0, null, 0);
+            swModel.DeleteSelection(status);
+            status = swModel.Extension.SelectByID2("D4@스케치1", "DIMENSION", 0, 0, 0, false, 0, null, 0);
+            swModel.DeleteSelection(status);
+            status = swModel.Extension.SelectByID2("D5@스케치1", "DIMENSION", 0, 0, 0, false, 0, null, 0);
+            swModel.DeleteSelection(status);
+            status = swModel.Extension.SelectByID2("D6@스케치1", "DIMENSION", 0, 0, 0, false, 0, null, 0);
+            swModel.DeleteSelection(status);
+
+            //도면화 작업을 위한 규격 치수 표시
+            status = swModel.Extension.SelectByID2("Line14", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
+            status = swModel.Extension.SelectByID2("Line7", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
+            swModel.AddDimension2(2.0*f,0,0); //호칭지름(dp)
+            status = swModel.Extension.SelectByID2("Line6", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
+            status = swModel.Extension.SelectByID2("Line9", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
+            swModel.AddDimension2(0, dp+5.1*k, 0); //각도(a)
+            status = swModel.Extension.SelectByID2("Line7", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
+            status = swModel.Extension.SelectByID2("Line11", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
+            swModel.AddDimension2(-2.7*f, dp+k, 0); // k
+            status = swModel.Extension.SelectByID2("Line7", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
+            status = swModel.Extension.SelectByID2("Line5", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
+            swModel.AddDimension2(-2.7*f, dp-k0/1.4, 0); // k0
+            status = swModel.Extension.SelectByID2("Line7", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
+            swModel.AddDimension2(0, dp + 2.8*k , 0); // l0
+
+            //도면화 작업을 위한 표면 거칠기 생성
+            swModel.Extension.InsertSurfaceFinishSymbol3((int)swSFSymType_e.swSFMachining_Req, (int)swLeaderStyle_e.swSTRAIGHT, -1.7 * f, dp + k, 0, (int)swSFLaySym_e.swSFNone, (int)swArrowStyle_e.swDOT_ARROWHEAD, "", "", "", "", "x", "", "");
+            swModel.Extension.InsertSurfaceFinishSymbol3((int)swSFSymType_e.swSFMachining_Req, (int)swLeaderStyle_e.swSTRAIGHT, -1.7 * f, dp - k0, 0, (int)swSFLaySym_e.swSFNone, (int)swArrowStyle_e.swDOT_ARROWHEAD, "", "", "", "", "x", "", "");
+   
             swFeature = swModel.FeatureByPositionReverse(0);
             swFeature.Name = "V벨트풀리_Sketch";
        
@@ -183,10 +217,9 @@ namespace Design_Automation_Machinery
 
             status = swModel.Extension.SelectByID2("Right", "PLANE", 0, 0, 0, false, 0, null, 0);
 
-
             swModel.InsertSketch2(true);
 
-            swModel.CreateCircleByRadius2(0, 0, 0, di);
+            swModel.CreateCircleByRadius2(0, 0, 0, di/2000.0);
             swModel.AddDimension2(-0.01, 0.01, 0);
             swModel.ClearSelection2(true);
 
@@ -219,7 +252,7 @@ namespace Design_Automation_Machinery
 
             swModel.InsertSketch2(true);
 
-            swModel.SketchRectangle(-b/2, di+t, 0, b/2, di-t, 0, true);
+            swModel.SketchRectangle(-b/2, di/2000.0+t, 0, b/2, di/2000.0-t, 0, true);
             swModel.AddDimension2(0.03, -0.02, 0);
             swModel.ClearSelection2(true);
 

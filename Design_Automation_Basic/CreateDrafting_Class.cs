@@ -77,7 +77,7 @@ namespace Design_Automation_Basic
             swDraw.AutoDimension((int)swAutodimEntities_e.swAutodimEntitiesBasedOnPreselect, (int)swAutodimScheme_e.swAutodimSchemeBaseline, (int)swAutodimHorizontalPlacement_e.swAutodimHorizontalPlacementAbove, (int)swAutodimScheme_e.swAutodimSchemeBaseline, (int)swAutodimVerticalPlacement_e.swAutodimVerticalPlacementRight);
         }
 
-        public void SaveAndOpen(ref string filename)
+        public void Save(ref string filename)
         {
             bool status;
             int lErrors = 0;

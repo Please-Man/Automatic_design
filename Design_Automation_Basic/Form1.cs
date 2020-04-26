@@ -143,7 +143,7 @@ namespace Design_Automation_Basic
             string filename = saveFileDialog.FileName; //선택 경로를 스트링 변수에 할당
             Console.WriteLine(filename);  
 
-            cd.SaveAndOpen(ref filename);
+            cd.Save(ref filename);
             cd.Drafting_create(ref filename);
         }
 
