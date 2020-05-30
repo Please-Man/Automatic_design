@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using SolidWorks.Interop.cosworks;
 using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.sw3dprinter;
 using SolidWorks.Interop.swcommands;
@@ -29,6 +31,11 @@ namespace Design_Automation_Basic
         // 모델링을 위한 객체
 
         DocumentSpecification swDocSpecification = default(DocumentSpecification);
+
+        ModelDocExtension swModelDocExt;
+        MotionStudyManager swMotionMgr;
+        MotionStudy swMotionStudy1;
+        SimulationGravityFeatureData swGravityFeat;
 
         string[] componentsArray = new string[1];
         object[] components = null;
@@ -190,7 +197,7 @@ namespace Design_Automation_Basic
             cusPropMgr.Add3("Dimensions", (int)swCustomInfoType_e.swCustomInfoText, (h * 1000).ToString() + "mm", (int)swCustomPropertyAddOption_e.swCustomPropertyDeleteAndAdd);
         }
 
-        public void Material(ref string metrial)
+        public void Material(ref string material)
         {
             string databaseName = null;
             string newPropName = null;
@@ -213,7 +220,7 @@ namespace Design_Automation_Basic
 
                 // Set the material to something else, so that the display changes
                 databaseName = "solidworks materials.sldmat";   // or "SOLIDWORKS Materials";
-                newPropName = metrial;
+                newPropName = material;
                 myPart.SetMaterialPropertyName(databaseName, newPropName);
                 //myPart.SetMaterialPropertyName2(configName, databaseName, newPropName);
                 dump_material_visual_properties(myMatVisProps, myPart);
@@ -480,8 +487,111 @@ namespace Design_Automation_Basic
                                "\nLyz = " + vMassProp[11] * 1000 * 1000 * 1000;
             }
         }
+
         public string Result_cal; // 물성치 메세지 출력용      
-        
-       
+
+        CosmosWorks COSMOSWORKS = default(CosmosWorks);
+        CwAddincallback CWAddinCallBack = default(CwAddincallback);
+        CWModelDoc ActDoc = default(CWModelDoc);
+        CWStudyManager StudyMngr = default(CWStudyManager);
+        CWStudy Study = default(CWStudy);
+        CWMesh CWMesh = default(CWMesh);
+        CWResults CWResult = default(CWResults);
+        CWPlot CWCFf = default(CWPlot);
+        CWResultsProbeManager CWProbeResultsManager = default(CWResultsProbeManager);
+        SelectionMgr swSelMgr = default(SelectionMgr);
+        CwAddincallback COSMOSObject = default(CwAddincallback);
+        CWModelDoc swsActDoc = default(CWModelDoc);
+        CWStudyManager swsStudyMngr = default(CWStudyManager);
+        CWStudy swsStudy = default(CWStudy);
+        CWLoadsAndRestraintsManager swsLBCMgr = default(CWLoadsAndRestraintsManager);
+        CWForce swsCWForce = default(CWForce);
+
+        object selBeam = null;
+        object selFace = null;
+        double[] data = new double[6];
+        int rowNum = 0;
+        double[] distValue = new double[3];
+        double[] forceValue = new double[3];
+        int errCode = 0;
+        string forceType = null;
+
+        public void SimulateB()
+        {
+            CWAddinCallBack = (CwAddincallback)swApp.GetAddInObject("CosmosWorks.CosmosWorks");
+            if (CWAddinCallBack == null)
+                ErrorMsg(swApp, "No CWAddinCallBack object", true);
+            COSMOSWORKS = CWAddinCallBack.CosmosWorks;
+            if (COSMOSWORKS == null)
+                ErrorMsg(swApp, "No CosmosWorks object", true);
+
+            //Get active document
+            ActDoc = COSMOSWORKS.ActiveDoc;
+            if (ActDoc == null)
+                ErrorMsg(swApp, "No active document", true);
+
+            //Delete all default static study plots from this model
+            ActDoc.DeleteAllDefaultStaticStudyPlots();
+
+            StudyMngr = ActDoc.StudyManager;
+
+            Study = StudyMngr.CreateNewStudy3("Study", (int)swsAnalysisStudyType_e.swsAnalysisStudyTypeStatic, 0, out errCode);
+
+            //Get Ready study
+            if (StudyMngr == null)
+                ErrorMsg(swApp, "No study manager object", true);
+            StudyMngr.ActiveStudy = 0;
+            Study = StudyMngr.GetStudy(0);
+            if (Study == null)
+                ErrorMsg(swApp, "Study not created", true);
+
+            Study.CreateMesh(0, 15, 0.75);
+
+        }
+
+        private void ErrorMsg(object swApp, string Message)
+        {
+            MessageBox.Show(Message);
+            MessageBox.Show("'*** WARNING - General");
+            MessageBox.Show("'*** " + Message);
+            MessageBox.Show("");
+        }
+
+        private void ErrorMsg(SldWorks SwApp, string Message, bool EndTest)
+        {
+            SwApp.SendMsgToUser2(Message, 0, 0);
+            SwApp.RecordLine("'*** WARNING - General");
+            SwApp.RecordLine("'*** " + Message);
+            SwApp.RecordLine("");
+        }
+
+        private void LoadError(object swApp, string force, long errorCode)
+        {
+            switch (errorCode)
+            {
+                case 18:
+                    ErrorMsg(swApp, "You cannot apply triangular and centered load distribution on multiple beams");
+                    break;
+                case 19:
+                    ErrorMsg(swApp, "You cannot apply a zero intensity load");
+                    break;
+                case 20:
+                    ErrorMsg(swApp, "Invalid selection");
+                    break;
+                case 21:
+                    ErrorMsg(swApp, "The table-driven data is invalid");
+                    break;
+                case 22:
+                    ErrorMsg(swApp, "In the table-driven distance data, the distance value from the previous row cannot be greater than the distance value in the next row");
+                    break;
+                case 0:
+                    Debug.Print(force);
+                    break;
+                default:
+                    ErrorMsg(swApp, "No forces applied");
+                    break;
+            }
+        }
     }
+
 }

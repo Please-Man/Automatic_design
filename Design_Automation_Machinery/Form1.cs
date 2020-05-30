@@ -25,7 +25,7 @@ namespace Design_Automation_Machinery
             saveFileDialog.Filter = "part file (*.sldprt)|*.sldprt|C# file (*.cs)|*.cs";
             saveFileDialog.ShowDialog();          
             string filename1 = saveFileDialog.FileName; //선택 경로를 스트링 변수에 할당
-            string filename2 = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
+            string filename2 = Path.GetFileNameWithoutExtension(saveFileDialog.FileName); //파일의 확장자를 제외한 파일명 가져오기
             Console.WriteLine("filename1 = " + filename1);
             Console.WriteLine("filename2 = " + filename2);
             cd.Drafting_Vbelt(ref filename1,ref filename2,ref dp,ref f);

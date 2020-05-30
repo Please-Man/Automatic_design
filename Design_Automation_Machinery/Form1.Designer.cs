@@ -64,7 +64,7 @@
             this.comboBox_category.FormattingEnabled = true;
             this.comboBox_category.Items.AddRange(new object[] {
             "V벨트풀리",
-            "스프로킷"});
+            "깊은홈볼베어링"});
             this.comboBox_category.Location = new System.Drawing.Point(49, 40);
             this.comboBox_category.Name = "comboBox_category";
             this.comboBox_category.Size = new System.Drawing.Size(121, 20);

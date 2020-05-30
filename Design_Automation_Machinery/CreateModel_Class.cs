@@ -96,7 +96,7 @@ namespace Design_Automation_Machinery
             swModel.SketchAddConstraints("sgHORIZONTAL2D");
             status = swModel.Extension.SelectByID2("Line6", "SKETCHSEGMENT", 0, 0, 0, false, 0, null, 0);
             status = swModel.Extension.SelectByID2("Point9", "SKETCHPOINT", 0, 0, 0, true, 0, null, 0);
-            swModel.SketchAddConstraints("sgCOINCIDENT");
+            swModel.SketchAddConstraints("sgCOINCIDENT"); //일치
             swModel.ClearSelection2(true);
 
             
@@ -271,8 +271,12 @@ namespace Design_Automation_Machinery
             swModel.ViewZoomtofit2();
 
             config = swModel.GetActiveConfiguration();
-            cusPropMgr = config.CustomPropertyManager;
-            
+            cusPropMgr = config.CustomPropertyManager;         
+        }
+
+        public void Create_Bearing()
+        {
+
         }
     }
 }

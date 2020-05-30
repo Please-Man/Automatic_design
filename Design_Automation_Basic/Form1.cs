@@ -129,8 +129,11 @@ namespace Design_Automation_Basic
 
         private void material_Click(object sender, EventArgs e)
         {
+            /*
             string material = comboBox_Material2.Text.ToString();
             cm.Material(ref material);
+            */
+            cm.SimulateB();
         }
 
         private void Drafting_Click(object sender, EventArgs e)
